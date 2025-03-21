@@ -57,5 +57,6 @@ class CrewaiOrderTrackingChatbotCrew():
             memory_config={
             "provider": "mem0",
             "config": {"user_id": "crew_user_1"},
+            "file_path": "memory.json"
         }
     )

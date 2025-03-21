@@ -12,8 +12,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        'tracking_id': 'sample_value',
-        'api_endpoint': 'sample_value'
+        'tracking_id': 'sample_value'
     }
     CrewaiOrderTrackingChatbotCrew().crew().kickoff(inputs=inputs)
 
