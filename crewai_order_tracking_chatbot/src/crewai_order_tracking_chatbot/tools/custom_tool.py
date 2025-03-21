@@ -2,9 +2,10 @@ import requests
 from crewai.tools import BaseTool
 from typing import Type
 from pydantic import BaseModel, Field
+import os
 
-API_KEY = "26820b9f-a7e7-46cd-a772-7520e1d82041"
-API_URL = "https://app.pinascargo.com/ai_api/tracking"
+CLIENT_API_KEY = os.getenv("CLIENT_API_KEY")#"26820b9f-a7e7-46cd-a772-7520e1d82041"
+CLIENT_API_URL = os.getenv("CLIENT_API_URL")#"https://app.pinascargo.com/ai_api/tracking"
 
 class OrderTrackingInput(BaseModel):
     """Schema for tracking order input."""
@@ -16,5 +17,5 @@ class OrderTrackingTool(BaseTool):
     args_schema: Type[BaseModel] = OrderTrackingInput
 
     def _run(self, booking_number: str) -> str:
-        response = requests.post(API_URL, json={"booking_number": booking_number}, headers={"apikey": API_KEY})
+        response = requests.post(CLIENT_API_URL, json={"booking_number": booking_number}, headers={"apikey": CLIENT_API_KEY})
         return response.json().get("data")
