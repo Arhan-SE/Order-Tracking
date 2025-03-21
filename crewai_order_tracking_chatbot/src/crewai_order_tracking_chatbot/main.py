@@ -12,7 +12,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        'tracking_id': 'sample_value'
+        "query": "Example value"
     }
     CrewaiOrderTrackingChatbotCrew().crew().kickoff(inputs=inputs)
 
@@ -22,8 +22,7 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        'tracking_id': 'sample_value',
-        'api_endpoint': 'sample_value'
+        "query": "Example value"
     }
     try:
         CrewaiOrderTrackingChatbotCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
@@ -46,8 +45,7 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        'tracking_id': 'sample_value',
-        'api_endpoint': 'sample_value'
+        "query": "Example value"
     }
     try:
         CrewaiOrderTrackingChatbotCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
