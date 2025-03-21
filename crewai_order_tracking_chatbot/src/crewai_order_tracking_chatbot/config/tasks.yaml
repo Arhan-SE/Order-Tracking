@@ -1,0 +1,35 @@
+---
+extract_tracking_id_task:
+  description: Extract the {tracking_id} from the user's input message using pattern
+    recognition to identify alphanumeric codes.
+  expected_output: The extracted {tracking_id} from the user message.
+  async_execution: false
+  agent: order_tracking_specialist
+update_memory_task:
+  description: Update the mem0 conversation context with the extracted {tracking_id}
+    to ensure continuity throughout the session.
+  expected_output: An updated mem0 context that includes the {tracking_id} and relevant
+    session details.
+  async_execution: false
+  agent: order_tracking_specialist
+  context:
+  - extract_tracking_id_task
+call_tracking_api_task:
+  description: Call the external API at {api_endpoint} using the {tracking_id} to
+    retrieve the corresponding order status.
+  expected_output: API response containing the order status linked to the provided
+    {tracking_id}.
+  async_execution: false
+  agent: order_tracking_specialist
+  context:
+  - update_memory_task
+generate_response_task:
+  description: Generate a final response message for the user that includes the order
+    status fetched from {api_endpoint} for the provided {tracking_id}, ensuring context
+    is preserved via mem0.
+  expected_output: A coherent final response message that communicates the order status
+    for {tracking_id} to the user.
+  async_execution: false
+  agent: order_tracking_specialist
+  context:
+  - call_tracking_api_task
