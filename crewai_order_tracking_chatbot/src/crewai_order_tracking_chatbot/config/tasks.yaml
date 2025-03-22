@@ -5,14 +5,4 @@ task:
   async_execution: false
   agent: order_tracking_specialist
 
-task:
-  description: |
-    Your task is to retrieve relevant memories and combine them with the user's current query.
-    Follow these steps:
-      1. Extract relevant memories from the memory tool (Mem0) based on the user's query.
-      2. Append the retrieved memories to the user's query to provide better context.
-      3. Use the order_tracking_specialist agent to generate a response.
-      4. Ensure the response is concise, clear, and directly answers the user's query.
-  expected_output: The expected output should be a well-structured response that utilizes both past memories and the new user query.
-  async_execution: false
-  agent: order_tracking_specialist
+

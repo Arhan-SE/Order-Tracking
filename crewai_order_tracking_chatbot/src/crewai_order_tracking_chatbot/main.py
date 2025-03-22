@@ -1,13 +1,12 @@
 #!/usr/bin/env python
-import sys
-from crewai_order_tracking_chatbot.crew import CrewaiOrderTrackingChatbotCrew
+from crewai_conversational_chatbot.crew import CrewaiConversationalChatbotCrew
+
 from dotenv import load_dotenv
 
 load_dotenv()
-# This main file is intended to be a way for your to run your
-# crew locally, so refrain from adding unnecessary logic into this file.
-# Replace with inputs you want to test with, it will automatically
-# interpolate any tasks and agents information
+
+
+memory = Memory.from_config(config)
 
 def run():
     """
@@ -24,7 +23,7 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "query": "Example value"
+        "query": "What is the order detail of order number 936842"
     }
     try:
         CrewaiOrderTrackingChatbotCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
