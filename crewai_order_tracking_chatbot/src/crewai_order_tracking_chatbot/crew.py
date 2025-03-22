@@ -1,6 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-from crewai_order_tracking_chatbot.tools.custom_tool import OrderTrackingTool
+from crewai_order_tracking_chatbot.tools.custom_tool import OrderTrackingTool, MemoryRetrievalTool
 import os
 
 
@@ -16,7 +16,7 @@ class CrewaiOrderTrackingChatbotCrew():
     def order_tracking_specialist(self) -> Agent:
         return Agent(
             config=self.agents_config['order_tracking_specialist'],
-            tools=[OrderTrackingTool()],
+            tools=[OrderTrackingTool(), MemoryRetrievalTool()],
         )
 
 
@@ -24,7 +24,7 @@ class CrewaiOrderTrackingChatbotCrew():
     def task(self) -> Task:
         return Task(
             config=self.tasks_config['task'],
-            tools=[OrderTrackingTool()],
+            tools=[OrderTrackingTool(), MemoryRetrievalTool()],
         )
 
 

@@ -14,7 +14,7 @@ def run():
     Run the crew.
     """
     inputs = {
-        "query": "Example value"
+        "query": "What is the order detail of order number 936842"
     }
     CrewaiOrderTrackingChatbotCrew().crew().kickoff(inputs=inputs)
 
@@ -47,7 +47,7 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "query": "Example value"
+        "query": "What is the order detail of order number 936842"
     }
     try:
         CrewaiOrderTrackingChatbotCrew().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
