@@ -1,12 +1,10 @@
 #!/usr/bin/env python
-from crewai_conversational_chatbot.crew import CrewaiConversationalChatbotCrew
+from crewai_order_tracking_chatbot.crew import CrewaiOrderTrackingChatbotCrew
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
-
-memory = Memory.from_config(config)
 
 def run():
     """
