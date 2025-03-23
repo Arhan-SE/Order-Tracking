@@ -6,8 +6,8 @@ import os
 from dotenv import load_dotenv\
     
 load_dotenv()
-CLIENT_API_KEY = os.getenv("CLIENT_API_KEY")#"26820b9f-a7e7-46cd-a772-7520e1d82041"
-CLIENT_API_URL = os.getenv("CLIENT_API_URL")#"https://app.pinascargo.com/ai_api/tracking"
+CLIENT_API_KEY = os.getenv("CLIENT_API_KEY")
+CLIENT_API_URL = os.getenv("CLIENT_API_URL")
 
 class OrderTrackingInput(BaseModel):
     """Schema for tracking order input."""
